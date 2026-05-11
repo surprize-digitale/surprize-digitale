@@ -711,6 +711,21 @@ footer{
 
 footer strong{color:white}
 
+  .unavailable-message{
+  opacity:0;
+  transition:.3s ease;
+  margin:18px 0;
+  text-align:center;
+  color:rgba(255,255,255,.72);
+  font-size:14px;
+  font-weight:700;
+  pointer-events:none;
+}
+
+.unavailable-message.show{
+  opacity:1;
+}
+  
 /* TABLET */
 @media(max-width:980px){
   .hero{
@@ -1007,6 +1022,10 @@ footer strong{color:white}
       <p>Fiecare experiență este diferită și construită special pentru persoana care o primește.</p>
     </div>
 
+    <div id="unavailableMessage" class="unavailable-message">
+⚡ Momentan Indisponibil, lucram din greu pentru a va oferi cea mai buna experienta!
+</div>
+
     <div class="cards three">
 
       <a class="card portfolio-link" href="/felicitare-romantica.html" target="_blank">
@@ -1111,9 +1130,7 @@ target="_blank">
 </footer>
 
 <script>
-  function showUnavailable(){
-  alert("Momentan Indisponibil, lucram din greu pentru a va oferi cea mai buna experienta!");
-}
+  
 const cursor = document.getElementById("cursorHeart");
 let sparkleCounter = 0;
 
