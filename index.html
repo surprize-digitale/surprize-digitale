@@ -34,38 +34,17 @@ a{text-decoration:none;color:inherit}
   --glass-hover: rgba(255, 255, 255, 0.08);
 }
 
-/* CURSOR MODERN MULT MAI ELEGANT */
-.cursor-dot{
-  position:fixed;
-  width:8px;
-  height:8px;
-  background:white;
-  border-radius:50%;
-  pointer-events:none;
-  z-index:99999;
-  transform:translate(-50%,-50%);
-  box-shadow:0 0 15px rgba(255,255,255,0.8);
-  transition: width 0.2s, height 0.2s;
+/* CURSOR DEFAULT CU PARTICULE */
+body{
+  font-family:'Outfit', sans-serif;
+  background:#020617; /* Midnight Blue */
+  color:#f8fafc;
+  overflow-x:hidden;
+  cursor: auto;
 }
 
-.cursor-ring{
-  position:fixed;
-  width:36px;
-  height:36px;
-  border:1px solid rgba(255,255,255,0.4);
-  border-radius:50%;
-  pointer-events:none;
-  z-index:99998;
-  transform:translate(-50%,-50%);
-  transition: width 0.3s, height 0.3s, background-color 0.3s;
-}
-
-body:hover .cursor-dot{ opacity: 1; }
-a:hover ~ .cursor-ring, button:hover ~ .cursor-ring {
-  width: 50px;
-  height: 50px;
-  background-color: rgba(255,255,255,0.1);
-  border-color: transparent;
+a, button, .mystery-card { 
+  cursor: pointer; 
 }
 
 .cursor-sparkle{
@@ -126,6 +105,99 @@ a:hover ~ .cursor-ring, button:hover ~ .cursor-ring {
 
 @keyframes floatOrb{
   to{transform:translateY(-60px) scale(1.05)}
+}
+
+/* PANOU PERSONALIZARE CURSOR & PARTICULE */
+.customizer-btn {
+  position: fixed;
+  bottom: 30px;
+  left: 30px;
+  z-index: 1000;
+  background: var(--glass);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(16px);
+  color: white;
+  padding: 12px 20px;
+  border-radius: 99px;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.customizer-btn:hover { background: rgba(255,255,255,0.1); transform: translateY(-3px); }
+
+.customizer-panel {
+  position: fixed;
+  bottom: 85px;
+  left: 30px;
+  z-index: 1000;
+  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(24px);
+  padding: 24px;
+  border-radius: 24px;
+  width: 280px;
+  box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+  transform: translateY(20px) scale(0.95);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transform-origin: bottom left;
+}
+.customizer-panel.show {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.panel-section { margin-bottom: 20px; }
+.panel-section:last-child { margin-bottom: 0; }
+.panel-section h5 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 12px;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.picker-group { display: flex; gap: 8px; }
+.picker-group button {
+  flex: 1;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: white;
+  font-size: 20px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.picker-group button:hover { background: rgba(255,255,255,0.1); transform:translateY(-2px); }
+.picker-group button.active {
+  background: var(--rose);
+  border-color: var(--rose);
+  box-shadow: 0 5px 15px rgba(244, 63, 94, 0.4);
+}
+
+/* CURSOARE PERSONALIZATE (SVG GENERAT FARA EMOJI) */
+body.cursor-heart, body.cursor-heart * {
+  cursor: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 256 256'%3E%3Cpath fill='%23f43f5e' stroke='white' stroke-width='16' d='M240,98a57.63,57.63,0,0,1-17,41L133.7,229.62a8,8,0,0,1-11.4,0L33,139a58,58,0,0,1,82-82.1L128,69.05l13-12.1A58,58,0,0,1,240,98Z'/%3E%3C/svg%3E") 14 14, auto !important;
+}
+body.cursor-star, body.cursor-star * {
+  cursor: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 256 256'%3E%3Cpath fill='%23fbbf24' stroke='white' stroke-width='16' d='M234.29,114.85l-45,38.83L203,211.75a16.4,16.4,0,0,1-24.5,17.82L128,198.49,77.47,229.57A16.4,16.4,0,0,1,53,211.75l13.76-58.07-45-38.83A16.46,16.46,0,0,1,31.08,86l59-4.76,22.76-55.08a16.36,16.36,0,0,1,30.27,0l22.75,55.08,59,4.76a16.46,16.46,0,0,1,9.37,28.86Z'/%3E%3C/svg%3E") 14 14, auto !important;
+}
+body.cursor-dog, body.cursor-dog * {
+  cursor: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cg stroke='white' stroke-width='1.5'%3E%3Cellipse cx='8' cy='16' rx='3.5' ry='8' fill='%23b45309'/%3E%3Cellipse cx='24' cy='16' rx='3.5' ry='8' fill='%23b45309'/%3E%3Ccircle cx='16' cy='14' r='9' fill='%23d97706'/%3E%3Cellipse cx='16' cy='19' rx='5' ry='4' fill='%23fef3c7' stroke-width='1'/%3E%3C/g%3E%3Ccircle cx='16' cy='17.5' r='1.5' fill='%231e293b'/%3E%3Ccircle cx='12' cy='12.5' r='1.5' fill='%231e293b'/%3E%3Ccircle cx='20' cy='12.5' r='1.5' fill='%231e293b'/%3E%3C/svg%3E") 16 16, auto !important;
 }
 
 /* NAVBAR */
@@ -972,7 +1044,8 @@ footer .footer-love i { color: var(--rose); }
 @media(max-width:640px){
   body{cursor:auto}
 
-  .cursor-dot, .cursor-ring, .cursor-sparkle { display:none; }
+  .cursor-sparkle { display:none; }
+  .customizer-btn, .customizer-panel { display: none; } /* Ascuns pe mobil */
 
   nav{display:none}
 
@@ -1011,14 +1084,38 @@ footer .footer-love i { color: var(--rose); }
 
 <body>
 
-<!-- CURSOARE MODERNE -->
-<div class="cursor-dot" id="cursorDot"></div>
-<div class="cursor-ring" id="cursorRing"></div>
-
 <div class="bg"></div>
 <div class="orb o1"></div>
 <div class="orb o2"></div>
 <div class="orb o3"></div>
+
+<!-- BUTON SI PANOU DE PERSONALIZARE -->
+<button class="customizer-btn" id="customizerBtn">
+  <i class="ph-fill ph-paint-brush"></i> Personalizare
+</button>
+
+<div class="customizer-panel" id="customizerPanel">
+  <div class="panel-section">
+    <h5><i class="ph-bold ph-cursor"></i> Cursor</h5>
+    <div class="picker-group" id="cursorPicker">
+      <button data-cursor="default" class="active" title="Standard"><i class="ph-bold ph-mouse-simple"></i></button>
+      <button data-cursor="heart" title="Inimă"><i class="ph-fill ph-heart"></i></button>
+      <button data-cursor="star" title="Stea"><i class="ph-fill ph-star"></i></button>
+      <button data-cursor="dog" title="Cățel"><i class="ph-fill ph-dog"></i></button>
+    </div>
+  </div>
+
+  <div class="panel-section">
+    <h5><i class="ph-bold ph-sparkle"></i> Particule</h5>
+    <div class="picker-group" id="particlePicker">
+      <button data-particle="sparkles" class="active" title="Magie"><i class="ph-fill ph-sparkle"></i></button>
+      <!-- BUG REPARAT AICI: am corectat clasa iconitei in ph-heart in loc de ph-hearts -->
+      <button data-particle="hearts" title="Romantic (Inimi+Stele)"><i class="ph-fill ph-heart"></i></button>
+      <button data-particle="stars" title="Stele"><i class="ph-fill ph-shooting-star"></i></button>
+      <button data-particle="paws" title="Lăbuțe"><i class="ph-fill ph-paw-print"></i></button>
+    </div>
+  </div>
+</div>
 
 <header>
   <div class="nav">
@@ -1304,6 +1401,41 @@ footer .footer-love i { color: var(--rose); }
 </footer>
 
 <script>
+// UI LOGIC PENTRU PANOU DE PERSONALIZARE
+const customizerBtn = document.getElementById("customizerBtn");
+const customizerPanel = document.getElementById("customizerPanel");
+
+// Deschide / Inchide panoul
+customizerBtn.addEventListener("click", () => {
+  customizerPanel.classList.toggle("show");
+});
+
+let currentParticleType = 'sparkles'; // Default
+
+// Setare Cursor
+document.querySelectorAll('#cursorPicker button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('#cursorPicker button').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const cursor = btn.getAttribute('data-cursor');
+    
+    // Curatam clasele vechi
+    document.body.classList.remove('cursor-heart', 'cursor-star', 'cursor-dog');
+    if(cursor !== 'default') {
+       document.body.classList.add('cursor-' + cursor);
+    }
+  });
+});
+
+// Setare Particule
+document.querySelectorAll('#particlePicker button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('#particlePicker button').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    currentParticleType = btn.getAttribute('data-particle');
+  });
+});
+
 let unavailableTimer;
 
 function showUnavailable(){
@@ -1315,30 +1447,45 @@ function showUnavailable(){
   }, 2500); 
 }
 
-// Custom Cursor Logic
-const cursorDot = document.getElementById("cursorDot");
-const cursorRing = document.getElementById("cursorRing");
 let sparkleCounter = 0;
 
+// Logic pentru particule (Modificat sa asculte de panou)
 document.addEventListener("mousemove", e => {
   if(window.innerWidth <= 640) return;
 
-  cursorDot.style.left = e.clientX + "px";
-  cursorDot.style.top = e.clientY + "px";
-  
-  setTimeout(() => {
-      cursorRing.style.left = e.clientX + "px";
-      cursorRing.style.top = e.clientY + "px";
-  }, 50);
-
   sparkleCounter++;
 
-  if(sparkleCounter % 15 === 0){
+  if(sparkleCounter % 8 === 0){
     const sparkle = document.createElement("div");
     sparkle.className = "cursor-sparkle";
-    sparkle.innerHTML = '<i class="ph-fill ph-sparkle"></i>'; 
-    sparkle.style.left = (e.clientX + (Math.random() * 20 - 10)) + "px";
-    sparkle.style.top = (e.clientY + (Math.random() * 20 - 10)) + "px";
+    
+    // VERIFICARE CE PARTICULE SUNT SELECTATE
+    if(currentParticleType === 'sparkles') {
+       sparkle.innerHTML = '<i class="ph-fill ph-sparkle"></i>';
+       sparkle.style.color = "var(--gold)";
+    } 
+    else if (currentParticleType === 'hearts') {
+       if(Math.random() > 0.5) {
+         sparkle.innerHTML = '<i class="ph-fill ph-heart"></i>';
+         sparkle.style.color = "var(--rose)";
+       } else {
+         sparkle.innerHTML = '<i class="ph-fill ph-sparkle"></i>';
+         sparkle.style.color = "var(--gold)";
+       }
+    } 
+    else if (currentParticleType === 'stars') {
+       sparkle.innerHTML = '<i class="ph-fill ph-star"></i>';
+       sparkle.style.color = "var(--gold)";
+    } 
+    else if (currentParticleType === 'paws') {
+       sparkle.innerHTML = '<i class="ph-fill ph-paw-print"></i>';
+       sparkle.style.color = "#d97706"; // Culoare maro deschis pt labute
+    }
+    
+    // Pozitionate langa cursor
+    sparkle.style.left = (e.clientX + 10) + "px";
+    sparkle.style.top = (e.clientY - 10) + "px";
+    
     document.body.appendChild(sparkle);
     setTimeout(()=>sparkle.remove(), 800);
   }
