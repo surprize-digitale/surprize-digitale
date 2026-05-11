@@ -1,0 +1,1585 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>Portofoliu Felicitări | Surprize Digitale</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@400;600;800;900&family=Playfair+Display:wght@600;700;800;900&display=swap');
+
+*{margin:0;padding:0;box-sizing:border-box}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:Inter,sans-serif;
+  background:#05050d;
+  color:white;
+  overflow-x:hidden;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+:root{
+  --pink:#ff2f7d;
+  --gold:#ffcc70;
+  --purple:#8b5cf6;
+  --glass:rgba(255,255,255,.08);
+  --border:rgba(255,255,255,.16);
+}
+
+/* BACKGROUND */
+.bg{
+  position:fixed;
+  inset:0;
+  z-index:-5;
+  background:
+    radial-gradient(circle at 20% 20%,rgba(255,47,125,.35),transparent 30%),
+    radial-gradient(circle at 80% 20%,rgba(255,204,112,.18),transparent 28%),
+    radial-gradient(circle at 50% 100%,rgba(139,92,246,.24),transparent 35%),
+    linear-gradient(135deg,#05050d,#160817,#071423);
+}
+
+.bg::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image:
+    radial-gradient(circle,rgba(255,255,255,.22) 1px,transparent 1px),
+    radial-gradient(circle,rgba(255,47,125,.18) 1px,transparent 1px);
+  background-size:72px 72px,120px 120px;
+  animation:stars 20s linear infinite;
+  opacity:.45;
+}
+
+@keyframes stars{
+  to{transform:translateY(-140px)}
+}
+
+.orb{
+  position:fixed;
+  width:380px;
+  height:380px;
+  border-radius:50%;
+  filter:blur(80px);
+  opacity:.45;
+  z-index:-4;
+  animation:floatOrb 8s infinite alternate ease-in-out;
+}
+
+.o1{background:#ff2f7d;left:-120px;top:100px}
+.o2{background:#8b5cf6;right:-120px;top:380px;animation-delay:1s}
+.o3{background:#ffcc70;left:35%;bottom:-180px;animation-delay:2s}
+
+@keyframes floatOrb{
+  to{transform:translateY(-50px) scale(1.1)}
+}
+
+/* NAVBAR */
+header{
+  position:sticky;
+  top:0;
+  z-index:100;
+  padding:15px 20px;
+  backdrop-filter:blur(18px);
+  background:rgba(5,5,13,.55);
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.nav{
+  max-width:1180px;
+  margin:auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  font-weight:900;
+}
+
+.logo-box{
+  width:44px;
+  height:44px;
+  border-radius:16px;
+  display:grid;
+  place-items:center;
+  background:linear-gradient(135deg,#ff2f7d,#ffcc70);
+  box-shadow:0 12px 35px rgba(255,47,125,.35);
+}
+
+.nav-actions{
+  display:flex;
+  gap:12px;
+  align-items:center;
+}
+
+.nav-btn{
+  padding:12px 18px;
+  border-radius:999px;
+  background:linear-gradient(135deg,#ff2f7d,#ff884c);
+  font-weight:900;
+  box-shadow:0 16px 35px rgba(255,47,125,.3);
+}
+
+.nav-link{
+  padding:12px 18px;
+  border-radius:999px;
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.12);
+  font-weight:900;
+  color:rgba(255,255,255,.82);
+}
+
+/* LAYOUT */
+section{
+  padding:90px 20px;
+}
+
+.container{
+  max-width:1180px;
+  margin:auto;
+}
+
+.hero{
+  min-height:calc(100vh - 80px);
+  display:grid;
+  grid-template-columns:1.05fr .95fr;
+  gap:50px;
+  align-items:center;
+}
+
+.badge{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:10px 16px;
+  border-radius:999px;
+  background:rgba(255,255,255,.08);
+  border:1px solid var(--border);
+  color:#ffd7e5;
+  font-size:12px;
+  font-weight:900;
+  letter-spacing:1.4px;
+  margin-bottom:24px;
+}
+
+h1{
+  font-family:"Playfair Display",serif;
+  font-size:clamp(46px,7vw,86px);
+  line-height:.95;
+  letter-spacing:-2px;
+  margin-bottom:24px;
+}
+
+.gradient{
+  background:linear-gradient(135deg,#fff,#ffd7e5,#ffcc70);
+  -webkit-background-clip:text;
+  color:transparent;
+}
+
+.hero-text{
+  color:rgba(255,255,255,.76);
+  font-size:18px;
+  line-height:1.75;
+  max-width:680px;
+}
+
+.cta-row{
+  margin-top:34px;
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  padding:15px 24px;
+  border-radius:999px;
+  font-weight:900;
+  transition:.25s ease;
+  border:1px solid rgba(255,255,255,.14);
+  cursor:pointer;
+}
+
+.btn:hover{
+  transform:translateY(-3px);
+}
+
+.primary{
+  background:linear-gradient(135deg,#ff2f7d,#ff884c);
+  box-shadow:0 18px 45px rgba(255,47,125,.35);
+}
+
+.secondary{
+  background:rgba(255,255,255,.08);
+  backdrop-filter:blur(16px);
+}
+
+/* PREVIEW CARD */
+.preview-card{
+  position:relative;
+  border-radius:40px;
+  min-height:520px;
+  background:
+    radial-gradient(circle at 20% 20%,rgba(255,47,125,.18),transparent 35%),
+    radial-gradient(circle at 80% 80%,rgba(255,204,112,.16),transparent 35%),
+    linear-gradient(180deg,rgba(255,255,255,.12),rgba(255,255,255,.05));
+  border:1px solid var(--border);
+  box-shadow:0 40px 120px rgba(0,0,0,.45);
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:30px;
+}
+
+.preview-phone{
+  width:min(100%,330px);
+  height:600px;
+  border-radius:44px;
+  background:#070707;
+  padding:12px;
+  box-shadow:
+    0 35px 95px rgba(0,0,0,.7),
+    0 0 65px rgba(255,47,125,.22);
+  transform:rotate(-2deg);
+}
+
+.preview-inner{
+  height:100%;
+  border-radius:34px;
+  overflow:hidden;
+  position:relative;
+  background:
+    linear-gradient(rgba(0,0,0,.15),rgba(0,0,0,.72)),
+    url("https://i.imgur.com/hZfAf7r.jpeg") center/cover;
+}
+
+.preview-inner::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle at 50% 18%,rgba(255,255,255,.2),transparent 25%),
+    linear-gradient(135deg,rgba(255,20,90,.25),rgba(0,0,0,.1),rgba(70,120,255,.22));
+}
+
+.preview-content{
+  position:absolute;
+  inset:0;
+  z-index:2;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:26px;
+}
+
+.preview-content h2{
+  font-family:"Great Vibes",cursive;
+  font-size:58px;
+  line-height:1;
+  margin-bottom:14px;
+}
+
+.preview-content p{
+  color:rgba(255,255,255,.82);
+  line-height:1.6;
+  font-weight:700;
+}
+
+.preview-tag{
+  position:absolute;
+  top:20px;
+  left:20px;
+  right:20px;
+  z-index:4;
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+}
+
+.preview-tag span{
+  padding:8px 12px;
+  border-radius:999px;
+  background:rgba(255,255,255,.14);
+  border:1px solid rgba(255,255,255,.18);
+  font-size:11px;
+  font-weight:900;
+  backdrop-filter:blur(12px);
+}
+
+.info-grid{
+  margin-top:40px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+
+.info-card{
+  padding:24px;
+  border-radius:28px;
+  background:linear-gradient(180deg,rgba(255,255,255,.1),rgba(255,255,255,.05));
+  border:1px solid var(--border);
+  backdrop-filter:blur(18px);
+}
+
+.info-card h3{
+  font-size:18px;
+  margin-bottom:10px;
+}
+
+.info-card p{
+  color:rgba(255,255,255,.7);
+  line-height:1.65;
+  font-size:14px;
+}
+
+footer{
+  padding:42px 20px;
+  text-align:center;
+  color:rgba(255,255,255,.62);
+  border-top:1px solid rgba(255,255,255,.08);
+}
+
+footer strong{
+  color:white;
+}
+
+/* EXPERIENCE OVERLAY */
+.experience{
+  position:fixed;
+  inset:0;
+  background:#05050a;
+  z-index:9999;
+  display:none;
+  overflow:hidden;
+}
+
+.experience.active{
+  display:block;
+}
+
+.close-experience{
+  position:fixed;
+  top:18px;
+  left:18px;
+  z-index:20000;
+  border:none;
+  cursor:pointer;
+  padding:12px 18px;
+  border-radius:999px;
+  font-weight:900;
+  color:white;
+  background:rgba(0,0,0,.45);
+  border:1px solid rgba(255,255,255,.22);
+  backdrop-filter:blur(14px);
+}
+
+/* GABRIELA EXPERIENCE */
+button{
+  border:0;
+  cursor:pointer;
+  font-family:inherit;
+}
+
+.screen{
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  opacity:0;
+  pointer-events:none;
+  transform:scale(.96);
+  transition:.8s cubic-bezier(.2,.8,.2,1);
+}
+
+.screen.active{
+  opacity:1;
+  pointer-events:auto;
+  transform:scale(1);
+}
+
+.story-bg{
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:
+    radial-gradient(circle at 20% 20%,rgba(255,0,100,.35),transparent 34%),
+    radial-gradient(circle at 80% 18%,rgba(255,190,90,.25),transparent 34%),
+    radial-gradient(circle at 50% 85%,rgba(90,100,255,.25),transparent 40%),
+    linear-gradient(135deg,#070713,#1a0816,#06101d);
+}
+
+.story-bg:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle at 15% 25%,rgba(255,255,255,.12),transparent 2%),
+    radial-gradient(circle at 80% 30%,rgba(255,255,255,.14),transparent 2%),
+    radial-gradient(circle at 40% 70%,rgba(255,255,255,.1),transparent 2%),
+    radial-gradient(circle at 65% 80%,rgba(255,255,255,.12),transparent 2%);
+  animation:sparkle 4s infinite alternate ease-in-out;
+}
+
+@keyframes sparkle{
+  from{opacity:.35}
+  to{opacity:1}
+}
+
+.story-hero{
+  position:relative;
+  z-index:2;
+  width:min(92vw,465px);
+  padding:36px 26px 34px;
+  border-radius:40px;
+  text-align:center;
+  background:rgba(255,255,255,.1);
+  border:1px solid rgba(255,255,255,.22);
+  backdrop-filter:blur(26px);
+  box-shadow:0 45px 110px rgba(0,0,0,.62);
+  overflow:hidden;
+}
+
+.story-hero:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(135deg,rgba(255,255,255,.18),transparent,rgba(255,40,110,.2));
+  pointer-events:none;
+}
+
+.story-hero>*{
+  position:relative;
+  z-index:2;
+}
+
+.story-badge{
+  display:inline-block;
+  padding:9px 18px;
+  border-radius:999px;
+  background:rgba(255,255,255,.14);
+  border:1px solid rgba(255,255,255,.22);
+  font-size:11px;
+  font-weight:900;
+  letter-spacing:1.8px;
+  color:#ffd6e4;
+  margin-bottom:58px;
+}
+
+.clapper{
+  width:235px;
+  height:155px;
+  margin:0 auto 26px;
+  border-radius:18px;
+  background:linear-gradient(135deg,#ff174d,#9f0028);
+  position:relative;
+  box-shadow:0 30px 75px rgba(255,23,77,.35);
+}
+
+.clapper:before{
+  content:"";
+  position:absolute;
+  left:-8px;
+  top:-45px;
+  width:250px;
+  height:52px;
+  border-radius:12px;
+  background:repeating-linear-gradient(135deg,#fff 0 28px,#ff174d 28px 56px);
+  transform:rotate(-7deg);
+}
+
+.clapper:after{
+  content:"ÎNCEPE";
+  position:absolute;
+  inset:52px 0 auto 0;
+  font-family:"Playfair Display",serif;
+  font-size:26px;
+  font-weight:800;
+}
+
+.clapper span{
+  position:absolute;
+  left:22px;
+  right:22px;
+  bottom:30px;
+  padding:8px 0;
+  font-size:12px;
+  font-weight:900;
+  letter-spacing:1px;
+  border-top:2px solid rgba(255,255,255,.45);
+  border-bottom:2px solid rgba(255,255,255,.45);
+}
+
+.story-title{
+  font-family:"Great Vibes",cursive;
+  font-size:66px;
+  line-height:1;
+}
+
+.story-sub{
+  margin-top:9px;
+  color:rgba(255,255,255,.82);
+  line-height:1.5;
+}
+
+.story-btn{
+  margin-top:28px;
+  padding:16px 32px;
+  border-radius:999px;
+  background:linear-gradient(135deg,#ff0f6d,#ffb35c);
+  color:white;
+  font-weight:900;
+  box-shadow:0 18px 45px rgba(255,36,111,.35);
+}
+
+.story-btn:active,.key:active{
+  transform:scale(.92);
+}
+
+/* TELEFON */
+.phone-screen-bg{
+  background:
+    radial-gradient(circle at 20% 20%,rgba(255,48,120,.32),transparent 28%),
+    radial-gradient(circle at 80% 20%,rgba(255,190,90,.25),transparent 30%),
+    radial-gradient(circle at 50% 80%,rgba(70,150,255,.25),transparent 40%),
+    linear-gradient(135deg,#090918,#170816,#071325);
+  overflow:hidden;
+}
+
+.phone-screen-bg:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle at 15% 30%,rgba(255,255,255,.12),transparent 2%),
+    radial-gradient(circle at 70% 25%,rgba(255,255,255,.14),transparent 2%),
+    radial-gradient(circle at 45% 70%,rgba(255,255,255,.1),transparent 2%);
+  animation:sparkle 4s infinite alternate ease-in-out;
+  pointer-events:none;
+}
+
+.phone-screen-bg:after{
+  content:"";
+  position:absolute;
+  width:420px;
+  height:420px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(255,40,110,.22),transparent 65%);
+  filter:blur(18px);
+  animation:orbMove 8s infinite alternate ease-in-out;
+  pointer-events:none;
+}
+
+@keyframes orbMove{
+  from{left:-120px;top:10%}
+  to{left:55%;top:55%}
+}
+
+.phone{
+  position:relative;
+  z-index:5;
+  width:min(92vw,385px);
+  height:720px;
+  max-height:92vh;
+  padding:13px;
+  border-radius:48px;
+  background:#070707;
+  box-shadow:
+    0 40px 110px rgba(0,0,0,.75),
+    0 0 70px rgba(255,35,110,.22);
+}
+
+.phone-inner{
+  position:relative;
+  height:100%;
+  border-radius:38px;
+  overflow:hidden;
+  padding:28px 22px;
+  text-align:center;
+  background:
+    linear-gradient(rgba(0,0,0,.25),rgba(0,0,0,.68)),
+    url("https://i.imgur.com/hZfAf7r.jpeg") center/cover;
+}
+
+.phone-inner:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle at 50% 18%,rgba(255,255,255,.18),transparent 25%),
+    linear-gradient(135deg,rgba(255,20,90,.22),rgba(0,0,0,.15),rgba(70,120,255,.18));
+  pointer-events:none;
+  z-index:0;
+}
+
+.phone-content{
+  position:relative;
+  z-index:5;
+}
+
+.date{font-size:15px;margin-top:18px}
+.clock{font-size:72px;font-weight:300;margin:8px 0 22px}
+.hint{font-weight:900;text-shadow:0 3px 15px #000}
+.small{font-size:13px;opacity:.9}
+
+.dots{
+  display:flex;
+  justify-content:center;
+  gap:9px;
+  margin:16px 0 28px;
+}
+
+.dot{
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  border:1px solid white;
+}
+
+.dot.fill{background:white}
+
+.keypad{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
+  max-width:270px;
+  margin:auto;
+  position:relative;
+  z-index:10;
+}
+
+.key{
+  height:68px;
+  border-radius:50%;
+  background:rgba(255,255,255,.25);
+  color:white;
+  font-size:27px;
+  backdrop-filter:blur(10px);
+}
+
+.key.tap{animation:keyTap .18s ease}
+
+@keyframes keyTap{
+  50%{transform:scale(.86);background:rgba(255,255,255,.45)}
+}
+
+.error{
+  margin-top:15px;
+  color:#ffd6df;
+  min-height:22px;
+  font-weight:800;
+}
+
+/* AMINTIRI */
+.memories{
+  background:
+    radial-gradient(circle at 15% 20%,rgba(255,0,80,.28),transparent 22%),
+    radial-gradient(circle at 85% 15%,rgba(255,40,90,.24),transparent 24%),
+    radial-gradient(circle at 50% 90%,rgba(255,190,90,.22),transparent 30%),
+    linear-gradient(180deg,#fff0d6,#ffe4bd);
+  color:#171717;
+  overflow:hidden;
+}
+
+.memories:before{
+  content:"❤ ✦ ✧ ❤ ✦ ✧ ❤ ✦ ✧ ❤ ✦ ✧ ❤ ✦ ✧ ❤ ✦ ✧ ❤ ✦ ✧";
+  position:absolute;
+  top:-25%;
+  left:-20%;
+  width:160%;
+  height:160%;
+  color:#ff174d;
+  font-size:28px;
+  letter-spacing:44px;
+  line-height:115px;
+  opacity:.38;
+  animation:redStars 12s infinite linear;
+  pointer-events:none;
+  transform:rotate(-8deg);
+}
+
+.memories:after{
+  content:"✦ ❤ ✧ ✦ ❤ ✧ ✦ ❤ ✧ ✦ ❤ ✧ ✦ ❤ ✧ ✦ ❤ ✧";
+  position:absolute;
+  top:-20%;
+  left:-18%;
+  width:160%;
+  height:160%;
+  color:#c90032;
+  font-size:21px;
+  letter-spacing:58px;
+  line-height:140px;
+  opacity:.22;
+  animation:redStars2 16s infinite linear;
+  pointer-events:none;
+  transform:rotate(6deg);
+}
+
+.floating-hearts{
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  overflow:hidden;
+  z-index:1;
+}
+
+.floating-hearts span{
+  position:absolute;
+  color:#ff174d;
+  opacity:.18;
+  font-size:var(--s);
+  left:var(--x);
+  top:var(--y);
+  animation:softFloat var(--d) infinite alternate ease-in-out;
+  filter:blur(.2px);
+}
+
+@keyframes redStars{
+  from{transform:rotate(-8deg) translateY(0)}
+  to{transform:rotate(-8deg) translateY(-160px)}
+}
+
+@keyframes redStars2{
+  from{transform:rotate(6deg) translateY(-90px) translateX(0)}
+  to{transform:rotate(6deg) translateY(70px) translateX(90px)}
+}
+
+@keyframes softFloat{
+  from{transform:translateY(0) scale(1) rotate(0deg)}
+  to{transform:translateY(-22px) scale(1.08) rotate(8deg)}
+}
+
+.memory-title{
+  position:relative;
+  z-index:3;
+  font-family:"Great Vibes",cursive;
+  font-size:64px;
+  margin-bottom:32px;
+  text-align:center;
+  color:#2b1116;
+  text-shadow:0 8px 25px rgba(255,0,80,.22);
+}
+
+.polaroids{
+  position:relative;
+  z-index:3;
+  width:min(94vw,900px);
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:24px;
+  perspective:1000px;
+}
+
+.polaroid{
+  width:175px;
+  height:222px;
+  background:white;
+  padding:10px 10px 44px;
+  box-shadow:
+    0 24px 50px rgba(0,0,0,.2),
+    0 0 28px rgba(255,23,77,.18);
+  transform:rotate(var(--r));
+  animation:photoPremium 4.5s infinite alternate ease-in-out;
+  position:relative;
+  border-radius:4px;
+}
+
+.polaroid:before{
+  content:"";
+  position:absolute;
+  inset:-8px;
+  background:linear-gradient(135deg,rgba(255,23,77,.2),transparent,rgba(255,180,90,.18));
+  filter:blur(16px);
+  z-index:-1;
+}
+
+.polaroid:after{
+  content:"♥";
+  position:absolute;
+  bottom:12px;
+  left:50%;
+  transform:translateX(-50%);
+  color:#ff174d;
+  font-size:18px;
+}
+
+.polaroid:nth-child(1){animation-delay:0s}
+.polaroid:nth-child(2){animation-delay:.35s}
+.polaroid:nth-child(3){animation-delay:.7s}
+.polaroid:nth-child(4){animation-delay:1.05s}
+
+.polaroid img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  filter:contrast(1.08) saturate(1.08);
+  transition:.4s ease;
+}
+
+.polaroid:hover{
+  z-index:10;
+  animation-play-state:paused;
+  transform:rotate(0deg) translateY(-14px) scale(1.08);
+}
+
+.polaroid:hover img{
+  filter:contrast(1.12) saturate(1.18) brightness(1.03);
+}
+
+@keyframes photoPremium{
+  0%{transform:rotate(var(--r)) translateY(0) scale(1)}
+  45%{transform:rotate(calc(var(--r) * -0.4)) translateY(-12px) scale(1.035)}
+  100%{transform:rotate(var(--r)) translateY(8px) scale(1.02)}
+}
+
+/* CER + PLIC */
+.sky{
+  background:linear-gradient(#4fc3ff,#e9f9ff);
+  overflow:hidden;
+}
+
+.sky:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle at 20% 18%,rgba(255,255,255,.75),transparent 2%),
+    radial-gradient(circle at 80% 22%,rgba(255,255,255,.65),transparent 2%),
+    radial-gradient(circle at 60% 70%,rgba(255,255,255,.55),transparent 2%);
+  animation:starsMove 4s infinite alternate ease-in-out;
+  pointer-events:none;
+}
+
+@keyframes starsMove{
+  from{opacity:.35;transform:translateY(0)}
+  to{opacity:1;transform:translateY(-10px)}
+}
+
+.delivery-wrap{
+  position:relative;
+  width:min(92vw,620px);
+  height:430px;
+  cursor:pointer;
+}
+
+.delivery-envelope{
+  position:absolute;
+  left:50%;
+  bottom:40px;
+  transform:translateX(-50%);
+  width:min(86vw,440px);
+  height:250px;
+  border-radius:18px;
+  background:linear-gradient(145deg,#ff174d,#c90032);
+  overflow:hidden;
+  box-shadow:0 35px 85px rgba(0,0,0,.28);
+}
+
+.delivery-envelope:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(145deg,transparent 50%,rgba(0,0,0,.2) 51%),
+    linear-gradient(-145deg,transparent 50%,rgba(0,0,0,.18) 51%);
+  pointer-events:none;
+}
+
+.delivery-envelope:after{
+  content:"";
+  position:absolute;
+  top:0;
+  width:100%;
+  height:55%;
+  background:linear-gradient(160deg,#ff416f,#d60038);
+  clip-path:polygon(0 0,100% 0,50% 100%);
+  pointer-events:none;
+}
+
+.seal{
+  position:absolute;
+  z-index:8;
+  left:50%;
+  bottom:68px;
+  transform:translateX(-50%);
+  width:86px;
+  height:86px;
+  border-radius:50%;
+  background:radial-gradient(circle at 35% 30%,#ffd98a,#b97928 58%,#6d3b12 100%);
+  box-shadow:
+    0 12px 28px rgba(0,0,0,.32),
+    inset 0 0 0 8px rgba(80,38,12,.35),
+    inset 0 0 18px rgba(255,235,170,.55);
+  pointer-events:none;
+}
+
+.seal:before{
+  content:"❦";
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#5b2c0e;
+  font-size:38px;
+}
+
+.seal:after{
+  content:"";
+  position:absolute;
+  inset:12px;
+  border-radius:50%;
+  border:1px solid rgba(70,35,12,.45);
+}
+
+.dove{
+  position:absolute;
+  right:45px;
+  bottom:230px;
+  width:190px;
+  height:150px;
+  z-index:8;
+  pointer-events:none;
+}
+
+.dove-body{
+  position:absolute;
+  left:48px;
+  top:60px;
+  width:118px;
+  height:66px;
+  background:white;
+  border-radius:72% 45% 45% 70%;
+}
+
+.dove-head{
+  position:absolute;
+  right:17px;
+  top:45px;
+  width:48px;
+  height:48px;
+  background:white;
+  border-radius:50%;
+}
+
+.dove-eye{
+  position:absolute;
+  right:31px;
+  top:60px;
+  width:6px;
+  height:6px;
+  background:#222;
+  border-radius:50%;
+}
+
+.dove-beak{
+  position:absolute;
+  right:0;
+  top:63px;
+  width:0;
+  height:0;
+  border-left:21px solid #f2a83b;
+  border-top:7px solid transparent;
+  border-bottom:7px solid transparent;
+}
+
+.dove-wing{
+  position:absolute;
+  left:62px;
+  top:18px;
+  width:95px;
+  height:92px;
+  background:white;
+  border-radius:90% 10% 90% 22%;
+  transform-origin:bottom left;
+  animation:wing .75s infinite alternate ease-in-out;
+}
+
+.dove-tail{
+  position:absolute;
+  left:15px;
+  top:82px;
+  width:72px;
+  height:48px;
+  background:white;
+  border-radius:80% 0 80% 0;
+  transform:rotate(-24deg);
+}
+
+@keyframes wing{
+  to{transform:rotate(-23deg)}
+}
+
+.sky-text{
+  position:absolute;
+  bottom:8%;
+  width:100%;
+  text-align:center;
+  font-family:"Great Vibes",cursive;
+  font-size:38px;
+  color:#1d4566;
+}
+
+/* PLIC MARE */
+.envelope-scene{
+  background:linear-gradient(145deg,#970024,#ff174d,#b60030);
+}
+
+.big-envelope{
+  width:min(92vw,720px);
+  height:420px;
+  position:relative;
+  background:linear-gradient(145deg,#ff174d,#c90032);
+  border-radius:22px;
+  overflow:hidden;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  cursor:pointer;
+}
+
+.big-envelope:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(145deg,transparent 50%,rgba(0,0,0,.2) 51%),
+    linear-gradient(-145deg,transparent 50%,rgba(0,0,0,.18) 51%);
+  pointer-events:none;
+}
+
+.big-envelope:after{
+  content:"";
+  position:absolute;
+  top:0;
+  width:100%;
+  height:56%;
+  background:linear-gradient(160deg,#ff416f,#d60038);
+  clip-path:polygon(0 0,100% 0,50% 100%);
+  pointer-events:none;
+}
+
+.env-text{
+  position:relative;
+  z-index:3;
+  font-family:"Great Vibes",cursive;
+  font-size:62px;
+  text-align:center;
+  pointer-events:none;
+}
+
+.big-hint{
+  position:absolute;
+  bottom:25px;
+  left:50%;
+  transform:translateX(-50%);
+  z-index:10;
+  padding:10px 18px;
+  border-radius:999px;
+  background:rgba(255,255,255,.18);
+  border:1px solid rgba(255,255,255,.28);
+  font-weight:900;
+  font-size:13px;
+  letter-spacing:.8px;
+  pointer-events:none;
+  animation:pulseHint 1.2s infinite alternate ease-in-out;
+}
+
+@keyframes pulseHint{
+  from{opacity:.65;transform:translateX(-50%) scale(1)}
+  to{opacity:1;transform:translateX(-50%) scale(1.05)}
+}
+
+/* SCRISOARE */
+.letter-scene{
+  background:linear-gradient(#93d8ff,#f4fcff);
+}
+
+.letter{
+  width:min(86vw,540px);
+  background:#fffaf0;
+  color:#171717;
+  padding:38px 32px;
+  border-radius:10px;
+  text-align:center;
+  box-shadow:0 25px 80px rgba(0,0,0,.28);
+}
+
+.letter h1{
+  font-family:"Great Vibes",cursive;
+  font-size:50px;
+  margin-bottom:16px;
+}
+
+.letter p{
+  font-family:"Playfair Display",serif;
+  font-size:17px;
+  line-height:1.75;
+  margin-bottom:14px;
+}
+
+/* FINAL */
+.final-story{
+  background:linear-gradient(160deg,#28172f,#ff7a4f,#1d2748);
+}
+
+.player{
+  width:min(90vw,520px);
+  padding:30px;
+  border-radius:32px;
+  background:rgba(0,0,0,.35);
+  backdrop-filter:blur(20px);
+  border:1px solid rgba(255,255,255,.2);
+  text-align:center;
+}
+
+.final-title{
+  font-family:"Great Vibes",cursive;
+  font-size:64px;
+}
+
+/* RESPONSIVE */
+@media(max-width:980px){
+  .hero{
+    grid-template-columns:1fr;
+  }
+
+  .info-grid{
+    grid-template-columns:1fr;
+  }
+
+  .preview-card{
+    max-width:620px;
+    margin:auto;
+  }
+}
+
+@media(max-width:640px){
+  .nav{
+    align-items:flex-start;
+  }
+
+  .nav-actions{
+    flex-direction:column;
+    align-items:flex-end;
+  }
+
+  .nav-link,
+  .nav-btn{
+    font-size:12px;
+    padding:10px 13px;
+  }
+
+  section{
+    padding:72px 16px;
+  }
+
+  h1{
+    font-size:clamp(42px,13vw,62px);
+  }
+
+  .hero-text{
+    font-size:16px;
+  }
+
+  .cta-row{
+    flex-direction:column;
+  }
+
+  .btn{
+    width:100%;
+  }
+
+  .preview-card{
+    min-height:auto;
+    padding:20px;
+  }
+
+  .preview-phone{
+    height:540px;
+    transform:none;
+  }
+
+  .preview-content h2{
+    font-size:48px;
+  }
+
+  .phone{height:690px}
+  .story-title{font-size:56px}
+  .memory-title{font-size:50px}
+  .polaroid{width:145px;height:190px}
+  .big-envelope{height:330px}
+  .env-text{font-size:48px}
+}
+</style>
+</head>
+
+<body>
+
+<div class="bg"></div>
+<div class="orb o1"></div>
+<div class="orb o2"></div>
+<div class="orb o3"></div>
+
+<header>
+  <div class="nav">
+    <a class="logo" href="index.html">
+      <div class="logo-box">✨</div>
+      <div>Surprize Digitale</div>
+    </a>
+
+    <div class="nav-actions">
+      <a class="nav-link" href="index.html">Înapoi la site</a>
+      <a class="nav-btn" href="#demo">Vezi exemplul ✨</a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<section>
+  <div class="container hero">
+
+    <div>
+      <div class="badge">💌 PORTOFOLIU FELICITĂRI DIGITALE</div>
+
+      <h1>
+        Felicitări romantice<br>
+        <span class="gradient">interactive și personalizate</span>
+      </h1>
+
+      <p class="hero-text">
+        Aici poți vedea un exemplu de felicitare digitală premium: cu poveste, poze, animații, parolă specială, plic animat și mesaj final personalizat.
+      </p>
+
+      <div class="cta-row">
+        <button class="btn primary" onclick="openExperience()">Deschide experiența 💖</button>
+        <a class="btn secondary" href="index.html#contact">Comandă una asemănătoare 💌</a>
+      </div>
+
+      <div class="info-grid">
+        <div class="info-card">
+          <h3>📸 Poze personale</h3>
+          <p>Experiența poate include pozele voastre, momente speciale și scene animate.</p>
+        </div>
+
+        <div class="info-card">
+          <h3>🔒 Cod secret</h3>
+          <p>Se poate deschide cu o dată importantă sau un cod ales de tine.</p>
+        </div>
+
+        <div class="info-card">
+          <h3>💌 Mesaj final</h3>
+          <p>La final apare o scrisoare personalizată, cu textul dorit de tine.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="preview-card" id="demo">
+      <div class="preview-phone">
+        <div class="preview-inner">
+          <div class="preview-tag">
+            <span>LOVE STORY</span>
+            <span>DEMO</span>
+          </div>
+
+          <div class="preview-content">
+            <h2>Pentru Gabriela</h2>
+            <p>Un exemplu de felicitare romantică interactivă.</p>
+            <button class="btn primary" onclick="openExperience()" style="margin-top:24px;width:auto;">
+              Start demo ✨
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <p>© 2026 <strong>Surprize Digitale</strong> | PORTOFOLIU</p>
+  <p>Designed for modern love stories 💖</p>
+</footer>
+
+<div class="experience" id="experience">
+
+  <button class="close-experience" onclick="closeExperience()">← Înapoi la portofoliu</button>
+
+  <audio id="bgMusic" src="https://files.catbox.moe/r6vnph.mp3"></audio>
+
+  <section class="screen active" id="s1">
+    <div class="story-bg"></div>
+    <div class="story-hero">
+      <div class="story-badge">LOVE STORY</div>
+      <div class="clapper"><span>FILMUL NOSTRU</span></div>
+      <h1 class="story-title">Pentru Gabriela</h1>
+      <p class="story-sub">Un mic film făcut din amintiri, emoții și noi doi.</p>
+      <button class="story-btn" onclick="start()">Deschide surpriza ✨</button>
+    </div>
+  </section>
+
+  <section class="screen phone-screen-bg" id="s2">
+    <div class="phone">
+      <div class="phone-inner">
+        <div class="phone-content">
+          <div class="date">Sâmbătă, 28 decembrie</div>
+          <div class="clock">16:05</div>
+          <div class="hint">Introduceți codul</div>
+          <div class="small">Indiciu: data noastră ❤️</div>
+          <div class="dots" id="dots"></div>
+          <div class="keypad">
+            <button class="key" onclick="press(1,this)">1</button>
+            <button class="key" onclick="press(2,this)">2</button>
+            <button class="key" onclick="press(3,this)">3</button>
+            <button class="key" onclick="press(4,this)">4</button>
+            <button class="key" onclick="press(5,this)">5</button>
+            <button class="key" onclick="press(6,this)">6</button>
+            <button class="key" onclick="press(7,this)">7</button>
+            <button class="key" onclick="press(8,this)">8</button>
+            <button class="key" onclick="press(9,this)">9</button>
+            <button class="key" onclick="clearCode(this)">⌫</button>
+            <button class="key" onclick="press(0,this)">0</button>
+            <button class="key" onclick="checkCode(this)">✓</button>
+          </div>
+          <div class="error" id="error"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="screen memories" id="s3">
+    <div class="floating-hearts">
+      <span style="--x:7%;--y:12%;--s:52px;--d:5s;">❤</span>
+      <span style="--x:18%;--y:70%;--s:34px;--d:6s;">✦</span>
+      <span style="--x:28%;--y:22%;--s:42px;--d:7s;">❤</span>
+      <span style="--x:40%;--y:82%;--s:30px;--d:5.5s;">✧</span>
+      <span style="--x:55%;--y:14%;--s:48px;--d:6.8s;">❤</span>
+      <span style="--x:68%;--y:74%;--s:36px;--d:5.8s;">✦</span>
+      <span style="--x:80%;--y:24%;--s:44px;--d:7.2s;">❤</span>
+      <span style="--x:90%;--y:62%;--s:38px;--d:6.4s;">✧</span>
+    </div>
+
+    <div>
+      <div class="memory-title">Amintirile Noastre...</div>
+
+      <div class="polaroids">
+        <div class="polaroid" style="--r:-4deg">
+          <img src="https://i.imgur.com/MJu6O7K.jpeg">
+        </div>
+
+        <div class="polaroid" style="--r:3deg">
+          <img src="https://i.imgur.com/kgeRBvN.jpeg">
+        </div>
+
+        <div class="polaroid" style="--r:-2deg">
+          <img src="https://i.imgur.com/N1Wg7OY.jpeg">
+        </div>
+
+        <div class="polaroid" style="--r:5deg">
+          <img src="https://i.imgur.com/yjhqTzY.jpeg">
+        </div>
+      </div>
+
+      <div style="text-align:center;margin-top:34px;position:relative;z-index:5;">
+        <button class="story-btn" onclick="go('s4')">Continuă ✨</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="screen sky" id="s4">
+    <div class="delivery-wrap" onclick="go('s5')">
+      <div class="delivery-envelope">
+        <div class="seal"></div>
+      </div>
+
+      <div class="dove">
+        <div class="dove-wing"></div>
+        <div class="dove-tail"></div>
+        <div class="dove-body"></div>
+        <div class="dove-head"></div>
+        <div class="dove-eye"></div>
+        <div class="dove-beak"></div>
+      </div>
+    </div>
+
+    <div class="sky-text">Apasă pe plic</div>
+  </section>
+
+  <section class="screen envelope-scene" id="s5">
+    <div class="big-envelope" onclick="go('s6')">
+      <div class="env-text">Pentru tine,<br>Gabriela mea</div>
+      <div class="seal"></div>
+      <div class="big-hint">APASĂ PE PLIC</div>
+    </div>
+  </section>
+
+  <section class="screen letter-scene" id="s6">
+    <div class="letter">
+      <h1>Gabriela,</h1>
+      <p>Am făcut această mică surpriză pentru tine, pentru că meriți ceva frumos, ceva făcut cu suflet și cu gândul la noi.</p>
+      <p>Îți mulțumesc pentru toate momentele în care ai fost lângă mine, pentru zâmbetul tău și pentru toate amintirile pe care le construim împreună.</p>
+      <p>Alături de tine, lucrurile simple devin speciale. Iar dacă ar fi să aleg din nou, tot pe tine te-aș alege. ❤️</p>
+      <button class="story-btn" onclick="go('s7')">Continuă ❤️</button>
+    </div>
+  </section>
+
+  <section class="screen final-story" id="s7">
+    <div class="player">
+      <h1 class="final-title">Te iubesc ❤️</h1>
+      <button class="story-btn" onclick="restart()">Începe din nou ✨</button>
+    </div>
+  </section>
+
+</div>
+
+<script>
+const correct = "28122024";
+let code = "";
+let unlocked = false;
+
+function openExperience(){
+  document.getElementById("experience").classList.add("active");
+  restartExperienceOnly();
+}
+
+function closeExperience(){
+  const music = document.getElementById("bgMusic");
+  music.pause();
+  music.currentTime = 0;
+
+  document.getElementById("experience").classList.remove("active");
+  restartExperienceOnly();
+}
+
+function go(id){
+  document.querySelectorAll(".experience .screen").forEach(s => s.classList.remove("active"));
+  document.getElementById(id).classList.add("active");
+}
+
+function resetLock(){
+  code = "";
+  unlocked = false;
+
+  const error = document.getElementById("error");
+  if(error) error.textContent = "";
+
+  updateDots();
+}
+
+function start(){
+  resetLock();
+
+  const music = document.getElementById("bgMusic");
+  music.pause();
+  music.currentTime = 0;
+  music.volume = 0.45;
+  music.play().catch(()=>{});
+
+  go("s2");
+}
+
+function tap(el){
+  if(!el) return;
+  el.classList.remove("tap");
+  void el.offsetWidth;
+  el.classList.add("tap");
+}
+
+function updateDots(){
+  const dots = document.getElementById("dots");
+  if(!dots) return;
+
+  dots.innerHTML = "";
+
+  for(let i = 0; i < 8; i++){
+    const d = document.createElement("div");
+    d.className = "dot" + (i < code.length ? " fill" : "");
+    dots.appendChild(d);
+  }
+}
+
+function press(n,el){
+  if(unlocked) return;
+  tap(el);
+
+  if(code.length < 8){
+    code += n;
+    updateDots();
+  }
+
+  if(code.length === 8){
+    checkCode();
+  }
+}
+
+function clearCode(el){
+  if(unlocked) return;
+  tap(el);
+  code = code.slice(0,-1);
+  document.getElementById("error").textContent = "";
+  updateDots();
+}
+
+function checkCode(el){
+  tap(el);
+
+  if(code === correct){
+    unlocked = true;
+    document.getElementById("error").textContent = "Deblocat ❤️";
+    setTimeout(()=>go("s3"),700);
+  }else if(code.length === 8){
+    document.getElementById("error").textContent = "Cod greșit 🥺";
+    code = "";
+    setTimeout(updateDots,250);
+  }
+}
+
+function restart(){
+  const music = document.getElementById("bgMusic");
+  music.pause();
+  music.currentTime = 0;
+
+  resetLock();
+  go("s1");
+}
+
+function restartExperienceOnly(){
+  code = "";
+  unlocked = false;
+  document.querySelectorAll(".experience .screen").forEach(s => s.classList.remove("active"));
+  document.getElementById("s1").classList.add("active");
+
+  const error = document.getElementById("error");
+  if(error) error.textContent = "";
+
+  updateDots();
+}
+
+updateDots();
+</script>
+
+</body>
+</html>
