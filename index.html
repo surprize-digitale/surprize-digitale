@@ -4,32 +4,23 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<title>Surprize Digitale| Cadouri Interactive</title>
+<title>Surprize Digitale | Cadouri Interactive</title>
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&family=Playfair+Display:wght@700;900&display=swap');
 
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
-
-html{
-  scroll-behavior:smooth;
-}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
 
 body{
   font-family:Inter,sans-serif;
   background:#05050d;
   color:white;
   overflow-x:hidden;
+  cursor:none;
 }
 
-a{
-  text-decoration:none;
-  color:inherit;
-}
+a{text-decoration:none;color:inherit}
 
 :root{
   --pink:#ff2f7d;
@@ -39,8 +30,62 @@ a{
   --border:rgba(255,255,255,.16);
 }
 
-/* BACKGROUND */
+/* CURSOR ORIGINAL */
+.cursor-heart{
+  position:fixed;
+  width:18px;
+  height:18px;
+  pointer-events:none;
+  z-index:99999;
+  transform:translate(-50%,-50%) rotate(45deg);
+  background:#ff2f7d;
+  border-radius:4px;
+  box-shadow:0 0 22px rgba(255,47,125,.95);
+}
 
+.cursor-heart::before,
+.cursor-heart::after{
+  content:"";
+  position:absolute;
+  width:18px;
+  height:18px;
+  background:#ff2f7d;
+  border-radius:50%;
+}
+
+.cursor-heart::before{left:-9px}
+.cursor-heart::after{top:-9px}
+
+.cursor-trail{
+  position:fixed;
+  width:8px;
+  height:8px;
+  pointer-events:none;
+  z-index:99998;
+  border-radius:50%;
+  background:#ff2f7d;
+  box-shadow:0 0 18px rgba(255,47,125,.8);
+  animation:trailFade .7s ease forwards;
+}
+
+@keyframes trailFade{
+  to{opacity:0;transform:scale(2.5)}
+}
+
+.cursor-sparkle{
+  position:fixed;
+  pointer-events:none;
+  z-index:99998;
+  color:#ffcc70;
+  font-size:14px;
+  animation:sparklePop .8s ease forwards;
+}
+
+@keyframes sparklePop{
+  to{opacity:0;transform:translateY(-25px) scale(1.8)}
+}
+
+/* BACKGROUND */
 .bg{
   position:fixed;
   inset:0;
@@ -65,9 +110,7 @@ a{
 }
 
 @keyframes stars{
-  to{
-    transform:translateY(-140px);
-  }
+  to{transform:translateY(-140px)}
 }
 
 .orb{
@@ -81,34 +124,15 @@ a{
   animation:floatOrb 8s infinite alternate ease-in-out;
 }
 
-.o1{
-  background:#ff2f7d;
-  left:-120px;
-  top:100px;
-}
-
-.o2{
-  background:#8b5cf6;
-  right:-120px;
-  top:380px;
-  animation-delay:1s;
-}
-
-.o3{
-  background:#ffcc70;
-  left:35%;
-  bottom:-180px;
-  animation-delay:2s;
-}
+.o1{background:#ff2f7d;left:-120px;top:100px}
+.o2{background:#8b5cf6;right:-120px;top:380px;animation-delay:1s}
+.o3{background:#ffcc70;left:35%;bottom:-180px;animation-delay:2s}
 
 @keyframes floatOrb{
-  to{
-    transform:translateY(-50px) scale(1.1);
-  }
+  to{transform:translateY(-50px) scale(1.1)}
 }
 
 /* NAVBAR */
-
 header{
   position:sticky;
   top:0;
@@ -152,9 +176,7 @@ nav{
   color:rgba(255,255,255,.75);
 }
 
-nav a:hover{
-  color:white;
-}
+nav a:hover{color:white}
 
 .nav-btn{
   padding:12px 18px;
@@ -164,11 +186,8 @@ nav a:hover{
   box-shadow:0 16px 35px rgba(255,47,125,.3);
 }
 
-/* HERO */
-
-section{
-  padding:90px 20px;
-}
+/* GENERAL */
+section{padding:90px 20px}
 
 .container{
   max-width:1180px;
@@ -178,8 +197,8 @@ section{
 .hero{
   min-height:calc(100vh - 80px);
   display:grid;
-  grid-template-columns:1.05fr .95fr;
-  gap:50px;
+  grid-template-columns:1.08fr .92fr;
+  gap:46px;
   align-items:center;
 }
 
@@ -200,7 +219,7 @@ section{
 
 h1{
   font-family:"Playfair Display",serif;
-  font-size:clamp(48px,7vw,88px);
+  font-size:clamp(48px,7vw,96px);
   line-height:.95;
   letter-spacing:-2px;
   margin-bottom:24px;
@@ -216,7 +235,7 @@ h1{
   color:rgba(255,255,255,.76);
   font-size:18px;
   line-height:1.75;
-  max-width:620px;
+  max-width:700px;
 }
 
 .cta-row{
@@ -238,9 +257,7 @@ h1{
   border:1px solid rgba(255,255,255,.14);
 }
 
-.btn:hover{
-  transform:translateY(-3px);
-}
+.btn:hover{transform:translateY(-3px)}
 
 .primary{
   background:linear-gradient(135deg,#ff2f7d,#ff884c);
@@ -252,104 +269,7 @@ h1{
   backdrop-filter:blur(16px);
 }
 
-/* PHONE */
-
-.preview{
-  position:relative;
-  min-height:580px;
-  border-radius:44px;
-  overflow:hidden;
-  border:1px solid var(--border);
-  background:linear-gradient(180deg,rgba(255,255,255,.12),rgba(255,255,255,.05));
-  box-shadow:0 40px 120px rgba(0,0,0,.45);
-}
-
-.preview::before{
-  content:"";
-  position:absolute;
-  inset:-30%;
-  background:
-    conic-gradient(
-      from 180deg,
-      transparent,
-      #ff2f7d,
-      transparent,
-      #ffcc70,
-      transparent,
-      #8b5cf6,
-      transparent
-    );
-  opacity:.25;
-  animation:spin 10s linear infinite;
-}
-
-@keyframes spin{
-  to{
-    transform:rotate(360deg);
-  }
-}
-
-.phone{
-  position:absolute;
-  inset:24px;
-  border-radius:38px;
-  overflow:hidden;
-  border:1px solid rgba(255,255,255,.15);
-  background:
-    linear-gradient(rgba(0,0,0,.2),rgba(0,0,0,.55)),
-    radial-gradient(circle at 20% 20%,rgba(255,47,125,.45),transparent 35%),
-    radial-gradient(circle at 80% 80%,rgba(255,204,112,.2),transparent 35%),
-    linear-gradient(145deg,#1b0c20,#0d1728);
-}
-
-.phone::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background-image:
-    radial-gradient(circle,rgba(255,255,255,.18) 1px,transparent 1px);
-  background-size:42px 42px;
-  opacity:.25;
-}
-
-.center-content{
-  position:relative;
-  z-index:2;
-  height:100%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  flex-direction:column;
-  text-align:center;
-  gap:22px;
-}
-
-.big-heart{
-  font-size:74px;
-  animation:heartFloat 3s infinite alternate ease-in-out;
-  filter:drop-shadow(0 0 25px rgba(255,47,125,.5));
-}
-
-@keyframes heartFloat{
-  to{
-    transform:translateY(-10px) scale(1.05);
-  }
-}
-
-.center-content h3{
-  font-family:"Playfair Display",serif;
-  font-size:46px;
-  line-height:1;
-}
-
-.center-content p{
-  max-width:260px;
-  color:rgba(255,255,255,.74);
-  line-height:1.6;
-}
-
 /* TRUST */
-
 .trust{
   margin-top:34px;
   display:grid;
@@ -373,8 +293,283 @@ h1{
   margin-bottom:8px;
 }
 
-/* SECTION */
+/* MYSTERY GIFT - CHENAR MARE STERS + CHENAR ANIMAT MIC */
+.mystery-wrap{
+  min-height:420px;
+  max-width:420px;
+  margin:auto;
+  border-radius:28px;
+  position:relative;
+  overflow:hidden;
+  border:none;
+  background:none;
+  box-shadow:none;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:0;
+}
 
+.mystery-card{
+  width:100%;
+  max-width:280px;
+  min-height:320px;
+  border-radius:24px;
+  background:rgba(255,255,255,.07);
+  border:1px solid rgba(255,255,255,.12);
+  backdrop-filter:blur(18px);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:18px;
+  position:relative;
+  overflow:hidden;
+  cursor:pointer;
+  transition:.3s ease;
+}
+
+.mystery-card:hover{
+  transform:translateY(-4px) scale(1.01);
+}
+
+.mystery-card::before{
+  content:"";
+  position:absolute;
+  inset:-55%;
+  background:
+  conic-gradient(
+    from 180deg,
+    transparent,
+    #ff2f7d,
+    transparent,
+    #ffcc70,
+    transparent,
+    #8b5cf6,
+    transparent
+  );
+  opacity:.16;
+  animation:spin 9s linear infinite;
+}
+
+@keyframes spin{
+  to{transform:rotate(360deg)}
+}
+
+.mystery-content{
+  position:relative;
+  z-index:2;
+  width:100%;
+}
+
+.mystery-stage{
+  width:210px;
+  height:200px;
+  position:relative;
+  margin:0 auto 14px;
+}
+
+/* FOAIA CU SCRIS */
+.paper-sheet{
+  position:absolute;
+  left:50%;
+  bottom:28px;
+  width:155px;
+  height:135px;
+  transform:translateX(-50%) translateY(72px) scale(.82);
+  background:linear-gradient(180deg,#fff,#fff7fa);
+  color:#5a1430;
+  border-radius:16px;
+  padding:12px;
+  z-index:4;
+  opacity:0;
+  box-shadow:0 18px 42px rgba(255,47,125,.28);
+  transition:
+    transform 1s cubic-bezier(.2,.9,.2,1),
+    opacity .35s ease;
+  overflow:hidden;
+}
+
+.paper-sheet::before{
+  content:"";
+  position:absolute;
+  inset:7px;
+  border:1px dashed rgba(143,29,44,.22);
+  border-radius:10px;
+  pointer-events:none;
+}
+
+.paper-sheet h4{
+  font-family:"Playfair Display",serif;
+  font-size:18px;
+  color:#8f1d2c;
+  margin-bottom:6px;
+  position:relative;
+  z-index:2;
+}
+
+.paper-sheet p{
+  color:#6b1c38;
+  font-size:9.7px;
+  line-height:1.3;
+  position:relative;
+  z-index:2;
+}
+
+.paper-sheet .small-sign{
+  margin-top:6px;
+  font-weight:900;
+  color:#8f1d2c;
+  font-size:9.7px;
+}
+
+/* PLIC MIC - FARA CHENAR SPATE */
+.envelope{
+  position:absolute;
+  left:50%;
+  bottom:14px;
+  width:150px;
+  height:95px;
+  transform:translateX(-50%);
+  z-index:10;
+  transition:transform .8s ease;
+}
+
+.env-flap{
+  position:absolute;
+  left:0;
+  top:0;
+  width:150px;
+  height:68px;
+  background:linear-gradient(135deg,#ff2f7d,#ffcc70);
+  clip-path:polygon(0 0,50% 82%,100% 0);
+  transform-origin:top center;
+  z-index:8;
+  border-radius:12px 12px 0 0;
+  transition:transform .75s cubic-bezier(.2,.8,.2,1);
+}
+
+.env-left{
+  position:absolute;
+  left:0;
+  bottom:0;
+  width:75px;
+  height:95px;
+  background:linear-gradient(135deg,#ffd4e4,#fff0f5);
+  clip-path:polygon(0 0,100% 52%,0 100%);
+  z-index:5;
+  border-radius:0 0 0 12px;
+}
+
+.env-right{
+  position:absolute;
+  right:0;
+  bottom:0;
+  width:75px;
+  height:95px;
+  background:linear-gradient(135deg,#ffeaf2,#ffc2d9);
+  clip-path:polygon(100% 0,0 52%,100% 100%);
+  z-index:5;
+  border-radius:0 0 12px 0;
+}
+
+.env-bottom{
+  position:absolute;
+  left:0;
+  bottom:0;
+  width:150px;
+  height:60px;
+  background:linear-gradient(135deg,#ff9ac2,#ffcc70);
+  clip-path:polygon(0 100%,50% 0,100% 100%);
+  z-index:7;
+  border-radius:0 0 12px 12px;
+}
+
+.envelope-shadow{
+  position:absolute;
+  left:50%;
+  bottom:2px;
+  width:130px;
+  height:16px;
+  transform:translateX(-50%);
+  border-radius:50%;
+  background:rgba(0,0,0,.22);
+  filter:blur(7px);
+  z-index:1;
+}
+
+.mystery-card:not(.open) .envelope{
+  animation:softFloat 2.8s ease-in-out infinite;
+}
+
+@keyframes softFloat{
+  50%{transform:translateX(-50%) translateY(-7px)}
+}
+
+.mystery-card.open .env-flap{
+  transform:rotateX(180deg);
+  z-index:2;
+}
+
+.mystery-card.open .paper-sheet{
+  opacity:1;
+  z-index:20;
+  transform:translateX(-50%) translateY(-52px) scale(1);
+}
+
+.mystery-card.open .envelope{
+  animation:none;
+  transform:translateX(-50%) translateY(10px);
+}
+
+.mystery-card.open .mini-note{
+  display:none;
+}
+
+.mystery-content h3{
+  font-family:"Playfair Display",serif;
+  font-size:32px;
+  line-height:1;
+  margin-bottom:8px;
+}
+
+.mystery-content > p{
+  color:rgba(255,255,255,.76);
+  line-height:1.6;
+  font-size:14px;
+}
+
+.mini-note{
+  margin-top:14px;
+  display:inline-flex;
+  padding:8px 12px;
+  border-radius:999px;
+  background:rgba(255,255,255,.1);
+  border:1px solid rgba(255,255,255,.16);
+  color:#ffd7e5;
+  font-size:12px;
+  font-weight:900;
+}
+
+.back-mystery{
+  display:none;
+  margin:12px auto 0;
+  border:none;
+  padding:9px 15px;
+  border-radius:999px;
+  font-weight:900;
+  color:white;
+  background:rgba(255,255,255,.12);
+  border:1px solid rgba(255,255,255,.18);
+  cursor:pointer;
+}
+
+.mystery-card.open .back-mystery{
+  display:inline-flex;
+}
+
+/* SECTIONS */
 .section-head{
   text-align:center;
   margin-bottom:50px;
@@ -402,11 +597,14 @@ h1{
 }
 
 /* CARDS */
-
 .cards{
   display:grid;
   grid-template-columns:repeat(4,1fr);
   gap:20px;
+}
+
+.cards.three{
+  grid-template-columns:repeat(3,1fr);
 }
 
 .card{
@@ -420,9 +618,7 @@ h1{
   transition:.25s ease;
 }
 
-.card:hover{
-  transform:translateY(-8px);
-}
+.card:hover{transform:translateY(-8px)}
 
 .icon{
   width:60px;
@@ -445,6 +641,7 @@ h1{
   color:rgba(255,255,255,.7);
   line-height:1.65;
   font-size:14px;
+  min-height:68px;
 }
 
 .price{
@@ -458,8 +655,28 @@ h1{
   font-size:13px;
 }
 
-/* CONTACT */
+/* PAYMENT */
+.payment-box{
+  margin-top:40px;
+  padding:28px;
+  border-radius:32px;
+  background:rgba(255,255,255,.07);
+  border:1px solid var(--border);
+  backdrop-filter:blur(18px);
+  text-align:center;
+}
 
+.payment-box h3{
+  font-size:26px;
+  margin-bottom:12px;
+}
+
+.payment-box p{
+  color:rgba(255,255,255,.75);
+  line-height:1.7;
+}
+
+/* CONTACT */
 .final{
   text-align:center;
   padding:76px 28px;
@@ -485,8 +702,6 @@ h1{
   line-height:1.7;
 }
 
-/* FOOTER */
-
 footer{
   padding:42px 20px;
   text-align:center;
@@ -494,53 +709,83 @@ footer{
   border-top:1px solid rgba(255,255,255,.08);
 }
 
-footer strong{
-  color:white;
-}
+footer strong{color:white}
 
-/* MOBILE */
-
+/* TABLET */
 @media(max-width:980px){
-
   .hero{
     grid-template-columns:1fr;
+    gap:34px;
   }
 
-  .cards{
+  .cards,
+  .cards.three{
     grid-template-columns:repeat(2,1fr);
+  }
+
+  .mystery-wrap{
+    max-width:420px;
+    margin:auto;
   }
 }
 
+/* PHONE */
 @media(max-width:640px){
+  body{cursor:auto}
 
-  nav{
+  .cursor-heart,
+  .cursor-trail,
+  .cursor-sparkle{
     display:none;
+  }
+
+  nav{display:none}
+
+  header{
+    padding:0;
+  }
+
+  .nav{
+    padding:14px 16px;
+  }
+
+  .logo{
+    font-size:15px;
+  }
+
+  .logo-box{
+    width:40px;
+    height:40px;
+  }
+
+  .nav-btn{
+    padding:10px 14px;
+    font-size:13px;
   }
 
   section{
     padding:72px 16px;
   }
 
-  .hero{
-    gap:32px;
+  h1{
+    font-size:clamp(44px,14vw,64px);
   }
 
-  .preview{
-    min-height:500px;
-    border-radius:34px;
+  .hero-text{
+    font-size:16px;
   }
 
-  .phone{
-    inset:18px;
-    border-radius:30px;
-  }
-
-  .cards{
+  .cards,
+  .cards.three{
     grid-template-columns:1fr;
   }
 
   .trust{
     grid-template-columns:repeat(2,1fr);
+  }
+
+  .trust div{
+    padding:15px;
   }
 
   .cta-row{
@@ -551,8 +796,46 @@ footer strong{
     width:100%;
   }
 
-  .hero-text{
-    font-size:16px;
+  .mystery-wrap{
+    min-height:380px;
+    max-width:340px;
+  }
+
+  .mystery-card{
+    max-width:270px;
+    min-height:310px;
+    padding:16px;
+  }
+
+  .mystery-stage{
+    width:205px;
+    height:195px;
+  }
+
+  .paper-sheet{
+    width:150px;
+    height:130px;
+  }
+
+  .paper-sheet h4{
+    font-size:17px;
+  }
+
+  .paper-sheet p{
+    font-size:9.3px;
+  }
+
+  .paper-sheet .small-sign{
+    font-size:9.3px;
+  }
+
+  .mystery-content h3{
+    font-size:30px;
+  }
+
+  .final{
+    padding:56px 20px;
+    border-radius:34px;
   }
 }
 </style>
@@ -560,16 +843,15 @@ footer strong{
 
 <body>
 
-<div class="bg"></div>
+<div class="cursor-heart" id="cursorHeart"></div>
 
+<div class="bg"></div>
 <div class="orb o1"></div>
 <div class="orb o2"></div>
 <div class="orb o3"></div>
 
 <header>
-
   <div class="nav">
-
     <a href="#" class="logo">
       <div class="logo-box">✨</div>
       <div>Surprize Digitale</div>
@@ -578,252 +860,315 @@ footer strong{
     <nav>
       <a href="#acasa">Acasă</a>
       <a href="#servicii">Servicii</a>
+      <a href="#portfolio">Portofoliu</a>
+      <a href="#faq">FAQ</a>
       <a href="#contact">Contact</a>
     </nav>
 
-    <a class="nav-btn" href="#contact">
-      Comandă ✨
-    </a>
-
+    <a class="nav-btn" href="#contact">Comandă ✨</a>
   </div>
-
 </header>
 
 <main id="acasa">
 
 <section>
+  <div class="container hero">
 
-<div class="container hero">
+    <div class="hero-inner">
+      <div class="badge">💖 SURPRIZE DIGITALE PREMIUM</div>
 
-  <div>
+      <h1>
+        Surprize digitale<br>
+        <span class="gradient">pentru momente speciale</span>
+      </h1>
 
-    <div class="badge">
-      💖 SURPRIZE DIGITALE PREMIUM
+      <p class="hero-text">
+        Felicitări interactive, povești romantice, joculețe personalizate și pagini premium optimizate pentru Instagram, TikTok și telefon.
+      </p>
+
+      <div class="cta-row">
+        <a class="btn primary" href="#contact">Comandă acum ✨</a>
+        <a class="btn secondary" href="#servicii">Vezi serviciile 💌</a>
+      </div>
+
+      <div class="trust">
+        <div><span>📸</span>Poze</div>
+        <div><span>🎵</span>Muzică</div>
+        <div><span>💞</span>Poveste</div>
+        <div><span>🔒</span>Link privat</div>
+      </div>
     </div>
 
-    <h1>
-      Surprize digitale<br>
-      <span class="gradient">
-        pentru momente speciale
-      </span>
-    </h1>
+    <div class="mystery-wrap">
+      <div class="mystery-card" id="mysteryCard">
+        <div class="mystery-content">
 
-    <p class="hero-text">
-      Felicitări interactive, povești romantice, joculețe personalizate și pagini premium
-      optimizate pentru Instagram, TikTok și telefon.
-    </p>
+          <div class="mystery-stage">
 
-    <div class="cta-row">
+            <div class="paper-sheet">
+              <h4>Pentru tine 💖</h4>
+              <p>
+                Să ai o zi minunată, plină de zâmbete, liniște și momente care îți încălzesc sufletul.
+              </p>
+              <p class="small-sign">
+                Cu drag,<br>Surprize Digitale ✨
+              </p>
+            </div>
 
-      <a class="btn primary" href="#contact">
-        Comandă acum ✨
-      </a>
+            <div class="envelope">
+              <div class="env-flap"></div>
+              <div class="env-left"></div>
+              <div class="env-right"></div>
+              <div class="env-bottom"></div>
+            </div>
 
-      <a class="btn secondary" href="#servicii">
-        Nimic 💌
-      </a>
+            <div class="envelope-shadow"></div>
 
-    </div>
+          </div>
 
-    <div class="trust">
+          <h3>Mystery Gift</h3>
 
-      <div>
-        <span>📸</span>
-        Poze
-      </div>
+          <p id="mysteryText">
+            Apasă pe plic ✨
+          </p>
 
-      <div>
-        <span>🎵</span>
-        Muzică
-      </div>
+          <button class="back-mystery" id="backMystery">
+            Înapoi
+          </button>
 
-      <div>
-        <span>💞</span>
-        Poveste
-      </div>
+          <div class="mini-note">
+            Cadou digital premium
+          </div>
 
-      <div>
-        <span>🔒</span>
-        Link privat
-      </div>
-
-    </div>
-
-  </div>
-
-  <div class="preview">
-
-    <div class="phone">
-
-      <div class="center-content">
-
-        <div class="big-heart">
-          💖
         </div>
-
-        <h3>
-          Surprize<br>Digitale
-        </h3>
-
-        <p>
-          Experiențe interactive premium pentru persoanele speciale.
-        </p>
-
       </div>
-
     </div>
 
   </div>
-
-</div>
-
 </section>
 
 <section id="servicii">
+  <div class="container">
 
-<div class="container">
-
-  <div class="section-head">
-
-    <div class="kicker">
-      SERVICII
+    <div class="section-head">
+      <div class="kicker">SERVICII</div>
+      <h2>Ce putem crea pentru tine ✨</h2>
+      <p>Fiecare surpriză este personalizată și optimizată pentru mobil.</p>
     </div>
 
-    <h2>
-      Abracadabra✨
-    </h2>
+    <div class="cards">
 
-    <p>
-      Fiecare surpriză este personalizată și optimizată pentru mobil.
-    </p>
-
-  </div>
-
-  <div class="cards">
-
-    <div class="card">
-      <div class="icon">💌</div>
-
-      <h3>Felicitări Digitale</h3>
-
-      <p>
-        Felicitări premium interactive pentru aniversări și momente speciale.
-      </p>
-
-      <div class="price">
-        de la 35 RON
+      <div class="card">
+        <div class="icon">💌</div>
+        <h3>Felicitări Digitale</h3>
+        <p>Felicitări premium interactive pentru aniversări și momente speciale.</p>
+        <div class="price">de la 35 RON</div>
       </div>
+
+      <div class="card">
+        <div class="icon">🎮</div>
+        <h3>Joculețe Interactive</h3>
+        <p>Mini experiențe creative cu întrebări, animații și final personalizat.</p>
+        <div class="price">de la 60 RON</div>
+      </div>
+
+      <div class="card">
+        <div class="icon">💞</div>
+        <h3>Povești Interactive</h3>
+        <p>Povești romantice cu poze, muzică, scene speciale și alegeri.</p>
+        <div class="price">de la 80 RON</div>
+      </div>
+
+      <div class="card">
+        <div class="icon">💖</div>
+        <h3>Pagini Romantice</h3>
+        <p>Love websites premium optimizate pentru telefon și Instagram.</p>
+        <div class="price">de la 120 RON</div>
+      </div>
+
     </div>
 
-    <div class="card">
-      <div class="icon">🎮</div>
-
-      <h3>Joculețe Interactive</h3>
-
+    <div class="payment-box">
+      <h3>Modalități de plată</h3>
       <p>
-        Mini experiențe creative cu întrebări și animații.
+        Plata se face prin <strong>Revolut</strong> sau <strong>Transfer Bancar</strong>.
       </p>
-
-      <div class="price">
-        de la 60 RON
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="icon">💞</div>
-
-      <h3>Povești Interactive</h3>
-
-      <p>
-        Povești romantice cu poze, muzică și scene speciale.
-      </p>
-
-      <div class="price">
-        de la 80 RON
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="icon">💖</div>
-
-      <h3>Pagini Romantice</h3>
-
-      <p>
-        Love websites premium optimizate pentru telefon și Instagram.
-      </p>
-
-      <div class="price">
-        de la 120 RON
-      </div>
     </div>
 
   </div>
+</section>
 
+<section id="portfolio">
+  <div class="container">
+
+    <div class="section-head">
+      <div class="kicker">PORTOFOLIU</div>
+      <h2>Exemple de surprize create ✨</h2>
+      <p>Fiecare experiență este diferită și construită special pentru persoana care o primește.</p>
+    </div>
+    <div style="
+margin-top:18px;
+margin-bottom:34px;
+text-align:center;
+color:rgba(255,255,255,.62);
+font-size:14px;
+font-weight:700;
+letter-spacing:.3px;
+">
+⚡ MOMENTAN INDISPONIBIL! LUCRAM AL ASTA PENTRU A VA OFERI CEA MAI BUNA EXPERIENTA!
 </div>
 
+    <div class="cards three">
+
+      <div class="card">
+        <div class="icon">💌</div>
+        <h3>Felicitare Romantică</h3>
+        <p>Poveste interactivă cu poze, muzică și mini surprize ascunse.</p>
+        <div class="price">Romantic Experience</div>
+      </div>
+
+      <div class="card">
+        <div class="icon">🎮</div>
+        <h3>Mini Game Personalizat</h3>
+        <p>Joculeț cute cu întrebări, mesaje și final special.</p>
+        <div class="price">Interactive Game</div>
+      </div>
+
+      <div class="card">
+        <div class="icon">🌹</div>
+        <h3>Love Story Website</h3>
+        <p>Website cinematic premium optimizat pentru telefon.</p>
+        <div class="price">Premium Website</div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<section id="faq">
+  <div class="container">
+
+    <div class="section-head">
+      <div class="kicker">FAQ</div>
+      <h2>Întrebări frecvente ✨</h2>
+    </div>
+
+    <div class="cards">
+
+      <div class="card">
+        <div class="icon">📱</div>
+        <h3>Merge pe telefon?</h3>
+        <p>Da. Toate surprizele sunt optimizate pentru telefon, tabletă și laptop.</p>
+      </div>
+
+      <div class="card">
+        <div class="icon">🎵</div>
+        <h3>Se poate adăuga muzică?</h3>
+        <p>Da. Putem integra melodia dorită în experiența digitală.</p>
+      </div>
+
+      <div class="card">
+        <div class="icon">📸</div>
+        <h3>Pot folosi pozele mele?</h3>
+        <p>Da. Totul este personalizat cu pozele și mesajele tale.</p>
+      </div>
+
+      <div class="card">
+        <div class="icon">⚡</div>
+        <h3>Cât durează?</h3>
+        <p>În funcție de complexitate, majoritatea comenzilor sunt gata rapid.</p>
+      </div>
+
+    </div>
+
+  </div>
 </section>
 
 <section id="contact">
+  <div class="container">
 
-<div class="container">
+    <div class="final">
+      <div class="kicker">START YOUR DIGITAL SURPRISE</div>
 
-  <div class="final">
+      <h2>Transformă un mesaj simplu într-o surpriză memorabilă 💖</h2>
 
-    <div class="kicker">
-      START YOUR DIGITAL SURPRISE
-    </div>
+      <p>Trimite-ne ideea ta și construim o experiență digitală premium.</p>
 
-    <h2>
-      Transformă un mesaj simplu într-o surpriză memorabilă 💖
-    </h2>
+      <div class="cta-row" style="justify-content:center">
+        <a class="btn primary" href="https://instagram.com/surprize.digitale" target="_blank">
+          Deschide Instagram ✨
+        </a>
 
-    <p>
-      Trimite-ne ideea ta și construim o experiență digitală premium.
-    </p>
-
-    <div class="cta-row" style="justify-content:center">
-
-      <a class="btn primary"
-      href="https://instagram.com/surprize.digitale"
-      target="_blank">
-
-        Deschide Instagram ✨
-
-      </a>
-
-      <a class="btn secondary"
-href="https://mail.google.com/mail/?view=cm&fs=1&to=surprize.digitale@gmail.com&su=Comandă%20Surpriză%20Digitală&body=Bună!%20Aș%20vrea%20să%20comand%20o%20surpriză%20digitală.%0A%0A📌%20Detalii%20comandă:%0A%0ANumele%20meu:%20%0ANumele%20persoanei%20pentru%20care%20este%20surpriza:%20%0AEmailul%20persoanei%20care%20va%20primi%20surpriza:%20%0A(Îl%20folosim%20doar%20dacă%20dorești%20ca%20surpriza%20să%20fie%20trimisă%20direct%20către%20ea/el.)%0A%0ATipul%20surprizei:%20%0AExemplu:%20felicitare%20digitală%20/%20poveste%20interactivă%20/%20joculeț%20/%20pagină%20romantică%0A%0AMesajul%20dorit:%20%0APozele%20pe%20care%20vreau%20să%20le%20folosesc:%20%0AMelodia%20dorită,%20dacă%20există:%20%0A%0AAlte%20detalii%20importante:%20%0A%0AMulțumesc!"
+        <a class="btn secondary"
+href="https://mail.google.com/mail/?view=cm&fs=1&to=surprize.digitale@gmail.com&su=Comand%C4%83%20Surpriz%C4%83%20Digital%C4%83&body=Bun%C4%83%21%20Vreau%20s%C4%83%20comand%20o%20surpriz%C4%83%20digital%C4%83%20%F0%9F%92%96%0A%0ANume%3A%0ATip%20surpriz%C4%83%3A%0AOcazia%3A%0AMesaj%20dorit%3A%0APoze%3A%0ADetalii%20suplimentare%3A%0A%0AMul%C8%9Bumesc%21%20%E2%9C%A8"
 target="_blank">
-
-        Trimite mail 💌
-
-      </a>
-
+  Trimite mail 💌
+</a>
+</a>
+        </a>
+      </div>
     </div>
 
   </div>
-
-</div>
-
 </section>
 
 </main>
 
 <footer>
-
-<p>
-© 2026 <strong>Surprize Digitale</strong> | DIGITAL
-</p>
-
-<p>
-Designed for modern love stories 💖
-</p>
-
-<p>
-@surprize.digitale
-</p>
-
+  <p>© 2026 <strong>Surprize Digitale</strong> | DIGITAL</p>
+  <p>Designed for modern love stories 💖</p>
+  <p>@surprize.digitale</p>
 </footer>
+
+<script>
+const cursor = document.getElementById("cursorHeart");
+let sparkleCounter = 0;
+
+document.addEventListener("mousemove", e => {
+  if(window.innerWidth <= 640) return;
+
+  cursor.style.left = e.clientX + "px";
+  cursor.style.top = e.clientY + "px";
+
+  const trail = document.createElement("div");
+  trail.className = "cursor-trail";
+  trail.style.left = e.clientX + "px";
+  trail.style.top = e.clientY + "px";
+  document.body.appendChild(trail);
+  setTimeout(()=>trail.remove(),700);
+
+  sparkleCounter++;
+
+  if(sparkleCounter % 8 === 0){
+    const sparkle = document.createElement("div");
+    sparkle.className = "cursor-sparkle";
+    sparkle.innerText = "✦";
+    sparkle.style.left = (e.clientX + 10) + "px";
+    sparkle.style.top = (e.clientY - 10) + "px";
+    document.body.appendChild(sparkle);
+    setTimeout(()=>sparkle.remove(),800);
+  }
+});
+
+const mystery = document.getElementById("mysteryCard");
+const mysteryText = document.getElementById("mysteryText");
+const backMystery = document.getElementById("backMystery");
+
+mystery.addEventListener("click",()=>{
+  if(mystery.classList.contains("open")) return;
+
+  mystery.classList.add("open");
+  mysteryText.innerHTML = "Felicitarea s-a deschis 💖";
+});
+
+backMystery.addEventListener("click",(e)=>{
+  e.stopPropagation();
+
+  mystery.classList.remove("open");
+  mysteryText.innerHTML = "Apasă pe plic ✨";
+});
+</script>
 
 </body>
 </html>
