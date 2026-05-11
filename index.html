@@ -718,14 +718,30 @@ footer{
 footer strong{color:white}
 
 .unavailable-message{
+  position:fixed;
+  left:50%;
+  bottom:32px;
+  transform:translateX(-50%) translateY(20px);
+  z-index:9999;
   opacity:0;
   transition:.3s ease;
-  margin:18px 0;
+  padding:14px 20px;
+  border-radius:999px;
+  background:rgba(255,255,255,.1);
+  border:1px solid rgba(255,255,255,.18);
+  backdrop-filter:blur(18px);
+  box-shadow:0 18px 45px rgba(0,0,0,.35);
   text-align:center;
-  color:rgba(255,255,255,.72);
+  color:#ffd7e5;
   font-size:14px;
-  font-weight:700;
+  font-weight:900;
   pointer-events:none;
+  max-width:90%;
+}
+
+.unavailable-message.show{
+  opacity:1;
+  transform:translateX(-50%) translateY(0);
 }
 
 .unavailable-message.show{
