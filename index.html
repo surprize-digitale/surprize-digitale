@@ -620,6 +620,12 @@ h1{
 
 .card:hover{transform:translateY(-8px)}
 
+.portfolio-link{
+  color:white;
+  text-decoration:none;
+  display:block;
+}
+
 .icon{
   width:60px;
   height:60px;
@@ -711,7 +717,7 @@ footer{
 
 footer strong{color:white}
 
-  .unavailable-message{
+.unavailable-message{
   opacity:0;
   transition:.3s ease;
   margin:18px 0;
@@ -1023,31 +1029,31 @@ footer strong{color:white}
     </div>
 
     <div id="unavailableMessage" class="unavailable-message">
-⚡ Momentan Indisponibil, lucram din greu pentru a va oferi cea mai buna experienta!
-</div>
+      ⚡ Momentan Indisponibil, lucram din greu pentru a va oferi cea mai buna experienta!
+    </div>
 
     <div class="cards three">
 
       <a class="card portfolio-link" href="/felicitare-romantica.html" target="_blank">
-  <div class="icon">💌</div>
-  <h3>Felicitare Romantică</h3>
-  <p>Poveste interactivă cu poze, muzică și mini surprize ascunse.</p>
-  <div class="price">Romantic Experience</div>
-</a>
+        <div class="icon">💌</div>
+        <h3>Felicitare Romantică</h3>
+        <p>Poveste interactivă cu poze, muzică și mini surprize ascunse.</p>
+        <div class="price">Romantic Experience</div>
+      </a>
 
       <a class="card portfolio-link" href="/mini-game-romantic.html" target="_blank">
-  <div class="icon">🎮</div>
-  <h3>Mini Game Personalizat</h3>
-  <p>Joculeț cute cu întrebări, mesaje și final special.</p>
-  <div class="price">Interactive Game</div>
-</a>
+        <div class="icon">🎮</div>
+        <h3>Mini Game Personalizat</h3>
+        <p>Joculeț cute cu întrebări, mesaje și final special.</p>
+        <div class="price">Interactive Game</div>
+      </a>
 
       <div class="card" onclick="showUnavailable()">
-  <div class="icon">🌹</div>
-  <h3>Love Story Website</h3>
-  <p>Website cinematic premium optimizat pentru telefon.</p>
-  <div class="price">Premium Website</div>
-</div>
+        <div class="icon">🌹</div>
+        <h3>Love Story Website</h3>
+        <p>Website cinematic premium optimizat pentru telefon.</p>
+        <div class="price">Premium Website</div>
+      </div>
 
     </div>
 
@@ -1109,11 +1115,9 @@ footer strong{color:white}
         </a>
 
         <a class="btn secondary"
-href="https://mail.google.com/mail/?view=cm&fs=1&to=surprize.digitale@gmail.com&su=Comand%C4%83%20Surpriz%C4%83%20Digital%C4%83&body=Bun%C4%83%21%20Vreau%20s%C4%83%20comand%20o%20surpriz%C4%83%20digital%C4%83%20%F0%9F%92%96%0A%0ANume%3A%0ATip%20surpriz%C4%83%3A%0AOcazia%3A%0AMesaj%20dorit%3A%0APoze%3A%0ADetalii%20suplimentare%3A%0A%0AMul%C8%9Bumesc%21%20%E2%9C%A8"
-target="_blank">
-  Trimite mail 💌
-</a>
-</a>
+        href="https://mail.google.com/mail/?view=cm&fs=1&to=surprize.digitale@gmail.com&su=Comand%C4%83%20Surpriz%C4%83%20Digital%C4%83&body=Bun%C4%83%21%20Vreau%20s%C4%83%20comand%20o%20surpriz%C4%83%20digital%C4%83%20%F0%9F%92%96%0A%0ANume%3A%0ATip%20surpriz%C4%83%3A%0AOcazia%3A%0AMesaj%20dorit%3A%0APoze%3A%0ADetalii%20suplimentare%3A%0A%0AMul%C8%9Bumesc%21%20%E2%9C%A8"
+        target="_blank">
+          Trimite mail 💌
         </a>
       </div>
     </div>
@@ -1130,7 +1134,20 @@ target="_blank">
 </footer>
 
 <script>
-  
+let unavailableTimer;
+
+function showUnavailable(){
+  const msg = document.getElementById("unavailableMessage");
+
+  msg.classList.add("show");
+
+  clearTimeout(unavailableTimer);
+
+  unavailableTimer = setTimeout(()=>{
+    msg.classList.remove("show");
+  },1000);
+}
+
 const cursor = document.getElementById("cursorHeart");
 let sparkleCounter = 0;
 
